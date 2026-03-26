@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./exports:/app/exports
+    working_dir: /app
+    command: node src/main.js
+
+  test:
+    build: .
+    command: node --test
+    profiles:
+      - test
